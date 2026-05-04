@@ -32,6 +32,9 @@ const SearchBar = () => {
     setShowSuggestions(false);
   };
 
+  // these fetches are pretty reactive, based on typing or getting by location,
+  // for that reason I don't want to use react-query, too much change to worry about
+  // caching
   const fetchCity = async (city: string) => {
     return await axios.get(GEO_URL, {
       params: {
