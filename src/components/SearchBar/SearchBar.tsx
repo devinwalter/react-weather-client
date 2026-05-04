@@ -62,6 +62,8 @@ const SearchBar = () => {
     });
   };
 
+  // NIT: I would clean up the loading states during this transition,
+  // currently it makes it a bit strange to click the button and wait a little bit, again, not for this demo
   const onUseCurrentLocation = () => {
     navigator.geolocation.getCurrentPosition(
       async (res) => {

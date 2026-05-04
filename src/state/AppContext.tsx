@@ -18,6 +18,7 @@ abstract class AppContextMethods {
   setSelectedCity?: Dispatch<SetStateAction<OpenWeatherAPICityOption | null>>;
   addRecentCity?: (city: OpenWeatherAPICityWeather) => void;
   addFavorite?: (city: OpenWeatherAPICityWeather) => void;
+  removeFavorite?: (city: OpenWeatherAPICityWeather) => void;
 }
 
 // Could use something like redux here, but too much boilerplate for a simple test app, context works great
@@ -63,7 +64,7 @@ export const AppContextProvider = ({ children }: PropsWithChildren) => {
       return [city, ...filtered].slice(0, 5);
     });
 
-  const addFavorite = (city: OpenWeatherAPICityWeather) => {
+  const addFavorite = (city: OpenWeatherAPICityWeather) =>
     setFavorites((prev) => {
       const filtered = prev.filter(
         (c) => c.lat !== city.lat || c.lon !== city.lon,
@@ -76,7 +77,18 @@ export const AppContextProvider = ({ children }: PropsWithChildren) => {
 
       return updated;
     });
-  };
+
+  const removeFavorite = (city: OpenWeatherAPICityWeather) =>
+    setFavorites((prev) => {
+      const updated = prev.filter(
+        (c) => c.lat !== city.lat || c.lon !== city.lon,
+      );
+
+      // persist
+      localStorage.setItem("weather-favorites", JSON.stringify(updated));
+
+      return updated;
+    });
 
   // memoize values to limit rerenders, this sits at the top of our component tree, every re-render becomes expensive
   const values: IAppContext = useMemo(
@@ -88,6 +100,7 @@ export const AppContextProvider = ({ children }: PropsWithChildren) => {
       setSelectedCity,
       addRecentCity,
       addFavorite,
+      removeFavorite,
       setQuery,
     }),
     [recents, favorites, selectedCity, query],

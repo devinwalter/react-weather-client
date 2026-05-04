@@ -36,6 +36,10 @@ If using redux, there is an rtk-query (Redux Toolkit) that accomplishes the same
 
 Demonstrated global state by using context, too lightweight to justify using redux for this, although redux is my personal go to for large applications
 
+## CSS
+
+Just used homegrown CSS, not CSS modules as there is some setup to be had, but wasn't worried about it. Realistically, in a production application, there would be some sort of defined CSS library that I use, could be MUI, Tailwind, etc... For this app, I just wrote my own CSS because it's kind of fun sometimes
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

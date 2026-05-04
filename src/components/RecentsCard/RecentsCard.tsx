@@ -11,10 +11,11 @@ interface RecentsCardProps {
   cityWeather: OpenWeatherAPICityWeather;
 }
 
+// bad name, ended up being both cards, not worrying about it currently
 const RecentsCard = ({ cityWeather }: RecentsCardProps) => {
-  const { favorites, addFavorite } = useAppContext();
+  const { favorites, addFavorite, removeFavorite } = useAppContext();
 
-  const isFavorite = favorites.find(
+  const isFavorite = favorites.some(
     (city) => city.lat === cityWeather.lat && city.lon === cityWeather.lon,
   );
 
@@ -23,20 +24,30 @@ const RecentsCard = ({ cityWeather }: RecentsCardProps) => {
     addFavorite?.(cityWeather);
   };
 
+  const removeFromFavorites: MouseEventHandler<HTMLButtonElement> = (e) => {
+    e.stopPropagation();
+    removeFavorite?.(cityWeather);
+  };
+
   return (
     <div className="card">
       <div>
         <h6>
-          {cityWeather.name}, {cityWeather.state}
+          {[cityWeather.name, cityWeather.state].filter(Boolean).join(", ")}
         </h6>
+        {/* using weather that we have cached and saved, could use react-query
+        to hold cached methods and dip into those methods, overkill for this */}
         <div className="weather-display">
-          <p>{cityWeather.main.temp}&deg;F</p>&nbsp;&middot;&nbsp;
+          <p>{Math.floor(cityWeather.main.temp)}&deg;F</p>&nbsp;&middot;&nbsp;
           <p>{cityWeather.weather?.[0].main}</p>
         </div>
       </div>
 
       {/* favorites */}
-      <button className="icon-btn" onClick={addToFavorites}>
+      <button
+        className="icon-btn"
+        onClick={isFavorite ? removeFromFavorites : addToFavorites}
+      >
         {isFavorite ? (
           <StarIconFilled width={32} color="#2563eb" />
         ) : (
