@@ -2,7 +2,7 @@
 
 ## React
 
-I decided to use react simply because of the ease of use.
+I decided to use react simply because of the ease of use, simplicity and quickness. I use react every single day, and this is is more inline with my every day workflow compared to a normal
 
 # React + TypeScript + Vite
 
