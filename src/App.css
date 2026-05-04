@@ -1,0 +1,8 @@
+.layout {
+  display: flex;
+  gap: 16px;
+}
+
+.content {
+  flex: 1;
+}

@@ -1,0 +1,36 @@
+.card {
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  padding: 0.5rem;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card h6 {
+  color: var(--text-h);
+  font-weight: bold;
+  font-size: 1rem;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+}
+
+.weather-display {
+  display: flex;
+  font-size: 0.875rem !important;
+}
+
+.icon-btn {
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  width: 32px;
+  height: 32px;
+}
+
+.icon-btn:hover svg {
+  color: var(--primary);
+}

@@ -1,0 +1,147 @@
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid #e5e7eb; /* light gray */
+  border-top: 3px solid #2563eb; /* blue */
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.weather-container {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.selected-city,
+.selected-city p,
+.weather,
+.weather h5 {
+  justify-self: flex-start;
+  align-self: flex-start;
+}
+
+.selected-city {
+  position: relative;
+  width: 100%;
+}
+
+.selected-city h4 {
+  font-size: 1.5rem;
+  line-height: 0;
+  text-align: left;
+}
+
+.selected-city button {
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 8px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.selected-city button:hover {
+  background: var(--code-bg);
+}
+
+.weather {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  width: 100%;
+  border-radius: 4px;
+}
+
+.weather-clear {
+  background: #fef3c7;
+}
+
+.weather-clouds {
+  background: #f1f5f9;
+}
+
+.temp {
+  display: flex;
+  align-items: baseline;
+  color: rgba(0, 0, 0, 0.8);
+  align-self: center;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 2rem 0;
+}
+
+.details p {
+  padding: 0.5rem 0;
+  font-size: 24px;
+}
+
+.value {
+  font-size: 128px;
+  line-height: 1;
+}
+
+.unit {
+  font-size: 84px;
+}
+
+.weather p {
+  font-size: 28px;
+  color: var(--text-h);
+}
+
+.weather img {
+  height: 200px;
+  width: 200px;
+}
+
+.extra {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.extra div {
+  flex-basis: 20%;
+  height: 100%;
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.extra div:last-child {
+  border-right: none;
+}
+
+.extra .unit {
+  margin-top: 0.5rem;
+  font-size: 24px;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.extra div svg {
+  color: #60a5fa;
+  margin-bottom: 0.5rem;
+}
+
+.last-updated {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.875rem;
+  color: var(--text);
+  margin-top: 1rem;
+}

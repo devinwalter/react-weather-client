@@ -1,0 +1,53 @@
+.sidebar {
+  width: 300px;
+  padding: 16px;
+  border-left: 1px solid #eee;
+  flex-direction: column;
+  position: relative;
+}
+
+.sidebar .disclaimer {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  font-size: 0.75rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.tabs button {
+  flex: 1;
+  padding: 6px;
+  border: none;
+  background: white;
+  color: var(--text-h);
+  display: flex;
+  justify-content: center;
+  border-radius: 0;
+}
+
+.tabs button.active {
+  border: none;
+  border-bottom: 4px solid var(--primary);
+}
+
+.list-item {
+  cursor: pointer;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.list-item:hover {
+  background: #f3f4f6;
+}
+
+.empty {
+  color: #9ca3af;
+  font-size: 14px;
+}
