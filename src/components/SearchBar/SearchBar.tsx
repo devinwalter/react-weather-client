@@ -67,8 +67,6 @@ const SearchBar = () => {
           lon: res.coords.longitude,
         });
 
-        console.log({ ...city.data });
-
         // getting the first result for this demo
         setSelectedCity?.({ ...city.data[0] });
         setSuggestions([]);

@@ -1,8 +1,40 @@
-# Documentation Discussion and Tradeoffs
+# Documentation and Discussions
+
+## Running the Application
+
+You can run the app locally by cloning, copying the .env.template file to a .env file and putting in a valid OpenWeatherAPI key
+
+## Timing
+
+I timeboxed this to about 2 hours over multiple sessions, it's pretty hard to find just two hours in a day, so this was done over a couple of days.
 
 ## React
 
-I decided to use react simply because of the ease of use, simplicity and quickness. I use react every single day, and this is is more inline with my every day workflow compared to a normal
+I decided to use react simply because of the ease of use, simplicity and quickness. I use react every single day, and this is is more inline with my every day workflow compared to a normal HTML + JS + CSS flow
+
+## OpenWeatherAPI
+
+I used [this](https://openweathermap.org/api/current?collection=current_forecast) API for my weather API
+
+## Dependencies
+
+### Axios
+
+Third party data fetching library, pretty self explanatory
+
+### @heroicons/react
+
+Lightweight third party icon library, useful for small functional non-production apps like this one. Very large variety of SVG icons that can be easily used.
+
+### @tanstack/react-query
+
+Data fetching library for handling caching, loading, error states, and much more, used with many global state paradigms, if not using redux, I will use this library in pretty much every application
+
+If using redux, there is an rtk-query (Redux Toolkit) that accomplishes the same thing.
+
+### React Context
+
+Demonstrated global state by using context, too lightweight to justify using redux for this, although redux is my personal go to for large applications
 
 # React + TypeScript + Vite
 
